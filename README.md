@@ -8,6 +8,38 @@ A practical guide to measuring marketing's contribution to pipeline in a B2B CRM
 
 Most B2B teams have the tools to show which campaigns created and moved pipeline. What breaks is the chain of records in between: a lead that never gets converted, a contact with no role on the deal, a UTM that never reaches the CRM. This playbook walks through that chain step by step. It also includes an **attribution auditor**: export 7 standard Salesforce reports, and it tells you whether the data can be trusted before it gives you sourced and influenced pipeline. Everything runs on made-up sample data out of the box.
 
+## What you give it, and what you get back
+
+### What you give it
+
+Export seven standard Salesforce reports as CSV files into one folder. [docs/export-salesforce-reports.md](docs/export-salesforce-reports.md) lists the columns for each.
+
+| You provide | Salesforce report |
+|---|---|
+| `leads.csv` | Leads, including converted leads |
+| `contacts.csv` | Contacts and accounts |
+| `accounts.csv` | Accounts |
+| `campaigns.csv` | Campaigns |
+| `campaign_members.csv` | Campaigns with campaign members |
+| `opportunities.csv` | Opportunities |
+| `opportunity_contact_roles.csv` | Opportunities with contact roles |
+
+You also tell it how long your sales cycle is, so it knows which touches are too old to count.
+
+### What you get back
+
+| Output | What it looks like |
+|---|---|
+| File check | Which exports are missing or have the wrong columns, before anything runs |
+| Data trust audit | Eight checks, each marked FIX or OK, with the number of records and the pipeline dollars affected |
+| Headline numbers | The share of pipeline marketing sourced, and how many deals it influenced |
+| Pipeline by campaign | Sourced and influenced pipeline for each campaign |
+| Model comparison | The same deals under first-touch, last-touch and even-split credit |
+| Fix list | Every record to correct, by name |
+| Leader summary | A short write-up with the top three fixes (when run in Claude Code) |
+
+On the sample data the audit finds an inflated influence number: counting email members who were only sent a message shows $320,000 influenced instead of $150,000.
+
 ## The chain
 
 ```mermaid
